@@ -1,0 +1,18 @@
+@use "./partials/shared/setup";
+@use "./partials/shared/variables" as *;
+@use "./partials/shared/globalStyles";
+@use "./partials/shared/typographies";
+@use "./partials/landingPage";
+@use "./partials/easyMode";
+@use "./partials/hardMode";
+@use "./partials/endPage";
+@use "./partials/shared/mediaQueries";
+@use "./partials/mixins";
+
+.invisible {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}

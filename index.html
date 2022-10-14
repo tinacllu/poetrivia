@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/c801010e11.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Poetry Trivia</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Poetry Trivia <i class="fa-sharp fa-solid fa-feather-pointed"></i> </h1>
+    </header>
+    <div class = "stackTop loading">
+      <i class="fa-sharp fa-solid fa-feather-pointed fa-xl loadingIcon"></i>
+    </div>
+
+    <section class="landingPage wrapper invisible" id="landingPage">
+
+
+      <!-- <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>John Doe</h1>
+            <p>Architect & Engineer</p>
+            <p>We love that guy</p>
+          </div>
+        </div>
+      </div> -->
+
+      <form class="modeSelection">
+        <fieldset>
+          <legend>Select your difficulty level</legend>
+          <div class="modes"> 
+            <input class="modeInputs " type="radio" name="gameMode" id="easy" value="easy" required>
+            <label class="easyBox" for="easy">Easy Mode</label>
+            <input class="modeInputs" type="radio" name="gameMode" id="hard" value="hard">
+            <label class="hardBox" for="hard">Hard Mode</label>
+          </div> <!-- .modes-->
+          <div class="instructions">
+            <div class="instructionsEasy">
+            <p> <span>Easy Mode:</span> Match the poem to the author using the options on screen. Earn a point for each correct answer.</p> 
+          </div>
+          <div class="instructionsHard">
+            <p><span>Hard Mode:</span> Guess the author of the poem on screen. Earn a point for each correct answer.</p>
+          </div>
+          </div>
+          <button type="submit" class="startButton">Start</button>
+        </fieldset>
+      </form> <!-- .modeSelection-->
+    </section> <!-- .landingPage-->
+
+    <section class="easyGame wrapper invisible" id="easyGame">
+      <div class="poetContainer"></div>
+      <div class="easyContainer">
+          <form class="easyQuestion">
+            <fieldset class="poemTitleContainer">
+              <legend hidden>Choose your answer</legend>
+
+              <input type="radio" name="option" id="option1" value="option1" required>
+              <label class="easyOption" name = "option" for="option1">option1</label>
+
+              <input type="radio" name="option" id="option2" value="option2">
+              <label  class="easyOption" name = "option" for="option2">option2</label>
+
+              <input type="radio" name="option" id="option3" value="option3">
+              <label  class="easyOption" name = "option" for="option3">option3</label>
+
+              <div class="resultContainer">
+                <div class="buttonContainer">
+                  <button type="submit" class="submit easySubmit">Submit Answer</button>
+                  <button class="nextButton next">Next</button>
+                  <button class="finishButton finish hidden">Finish Quiz</button>
+                </div> <!-- .button Container-->
+                <div class="currentScore"></div>
+            </div> <!-- .resultContainer -->
+            </fieldset>
+          </form> <!-- .easyQuestion -->
+      </div> <!-- .easyContainer -->
+    </section> <!-- .easyGame -->
+
+    <section class="hardGame wrapper invisible" id="hardGame">
+      <div class="titleContainer"></div>
+      <form class = "hardQuestion" action="submit">
+        <label for="textBox" hidden>Poet Name</label>
+        <input required type="text" placeholder="who is this poem by?" class="textBox"  name="textBox" id="textBox" />
+        <button type="submit" class="submit hardSubmit">Submit Answer</button>
+      </form> <!-- .hardQuestion -->
+      <div class="resultContainer">
+        <button class="nextButton nextHard">Next</button>
+        <button class="finishButton finishHard hidden">Finish Quiz</button>
+        <div class="currentScoreHard"></div>
+      </div> <!-- .result Container -->
+    </section> <!-- .hardGame -->
+
+    <section class="endPage wrapper invisible" id="endPage">
+      <div class="finalContent">
+        <div class="contentContainer">
+        <h3 class="finalScore"></h3>
+        <p>Congratulations on finishing the quiz!</p>
+        <button class="restart">Restart</button>
+      </div>
+      </div>
+    </section> <!-- .endPage-->
+
+    <footer class="invisible">
+      <p class="footerText">Created by Britt Freitas and Tina Lu</p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

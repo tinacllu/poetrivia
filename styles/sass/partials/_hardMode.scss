@@ -1,0 +1,91 @@
+@use "./shared/variables" as *;
+@use "./mixins" as *;
+
+.hardGame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .titleContainer {
+        width: 80%;
+    }
+    h2 {
+        font-size: 5rem;
+
+        @include tablet {
+            text-align: center;
+        }
+    }
+}
+
+.hardQuestion {
+    display: flex;
+    width: 80%;
+    gap: 25px;
+ 
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .correct {
+        outline: 5px solid $correct;
+    }
+    .incorrect {
+        outline: 5px solid $incorrect;
+        border: 1px solid white;
+    }
+
+    input {
+        all: unset;
+        background-color: white;
+        border-radius: 50px;
+        width: 80%;
+        padding-left: 25px;
+        &:hover, &:focus {
+            outline: 5px solid $medOrange;
+        }
+        &::placeholder {
+            color: $darkOrange;
+        }
+        &:disabled {
+            color: $lightGray;
+            pointer-events: none;
+        }
+       
+        @include tablet {
+        height: 50%;
+        min-width: 250px;
+        }
+    }
+}
+
+.resultContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 25px 0;
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        button.nextButton.nextHard {
+            width: 20%;
+        }
+    }
+    
+    .currentScoreHard {
+        align-self: center;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+    }
+}
