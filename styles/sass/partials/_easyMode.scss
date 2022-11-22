@@ -18,6 +18,12 @@
   }
 }
 
+.poetContainer {
+  h2 {
+    margin: 25px 0;
+  }
+  
+}
 .poemTitleContainer {
   display: flex;
   flex-direction: column;
@@ -89,7 +95,3 @@
     }
   }
 }
-
-
-
-//   add min width of 250px on labels

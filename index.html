@@ -16,6 +16,10 @@
     />
     <link rel="stylesheet" href="./styles/styles.css" />
     <title>Poetry Trivia</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
   </head>
 
   <body>
@@ -27,24 +31,9 @@
     </div>
 
     <section class="landingPage wrapper invisible" id="landingPage">
-
-
-      <!-- <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-          </div>
-          <div class="flip-card-back">
-            <h1>John Doe</h1>
-            <p>Architect & Engineer</p>
-            <p>We love that guy</p>
-          </div>
-        </div>
-      </div> -->
-
       <form class="modeSelection">
         <fieldset>
-          <legend>Select your difficulty level</legend>
+          <legend>Select your difficulty level:</legend>
           <div class="modes"> 
             <input class="modeInputs " type="radio" name="gameMode" id="easy" value="easy" required>
             <label class="easyBox" for="easy">Easy Mode</label>
@@ -53,12 +42,12 @@
           </div> <!-- .modes-->
           <div class="instructions">
             <div class="instructionsEasy">
-            <p> <span>Easy Mode:</span> Match the poem to the author using the options on screen. Earn a point for each correct answer.</p> 
-          </div>
-          <div class="instructionsHard">
-            <p><span>Hard Mode:</span> Guess the author of the poem on screen. Earn a point for each correct answer.</p>
-          </div>
-          </div>
+              <p><span class="bold">Easy Mode:</span> Match the poem to the author using the options on screen. Earn a point for each correct answer.</p> 
+            </div>
+            <div class="instructionsHard">
+              <p><span class="bold">Hard Mode:</span> Guess the author of the poem on screen. Earn a point for each correct answer.</p>
+            </div>
+          </div> <!--instructions-->
           <button type="submit" class="startButton">Start</button>
         </fieldset>
       </form> <!-- .modeSelection-->

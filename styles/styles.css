@@ -225,11 +225,9 @@ body {
   background-image: url("../assets/background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
   margin: 0;
-}
-body section {
-  height: 70vh;
+  height: 100%;
+  max-height: 100vh;
 }
 
 header {
@@ -243,7 +241,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 .wrapper {
@@ -301,19 +299,32 @@ button {
 footer {
   background-color: transparent;
   width: 100%;
-  height: 3vh;
-  padding-top: 3px;
   margin-top: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
 }
 footer p {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-size: 1.6rem;
   margin: 0px;
-  text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   padding-right: 10px;
+  padding-bottom: 10px;
 }
 @media (max-width: 900px) {
-  footer p {
-    text-align: center;
+  footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -378,7 +389,7 @@ h1 {
   color: #637373;
   font-size: clamp(4.5rem, 5vw, 10rem);
   text-align: center;
-  margin-bottom: 55px;
+  margin: 25px 0;
 }
 
 h2 {
@@ -393,6 +404,17 @@ h3 {
 
 button {
   font-family: "Bad Script", cursive;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
 }
 
 .landingPage {
@@ -415,13 +437,12 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
 }
 .landingPage .modeSelection fieldset {
   display: -webkit-box;
@@ -435,9 +456,12 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  margin-top: 30px;
 }
 .landingPage .modeSelection fieldset legend {
   text-align: center;
+  width: 100%;
 }
 .landingPage .modeSelection fieldset .modes {
   display: -webkit-box;
@@ -453,10 +477,13 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 60px 0px;
+  margin: 25px 0px;
+  width: 100%;
 }
 .landingPage .modeSelection fieldset .modes input:checked + label {
   outline: 2px solid white;
+  -webkit-box-shadow: 2px 2px 10px white;
+          box-shadow: 2px 2px 10px white;
 }
 @media (max-width: 600px) {
   .landingPage .modeSelection fieldset .modes {
@@ -472,26 +499,36 @@ button {
 .landingPage .modeSelection fieldset .modes .easyBox {
   background: #a5b7b8;
 }
+.landingPage .modeSelection fieldset .modes .easyBox:hover, .landingPage .modeSelection fieldset .modes .easyBox:focus {
+  background: #679b9b;
+  color: white;
+}
 .landingPage .modeSelection fieldset .modes .hardBox {
-  background: #8aabad;
+  background: #ffd2b5;
+}
+.landingPage .modeSelection fieldset .modes .hardBox:hover, .landingPage .modeSelection fieldset .modes .hardBox:focus {
+  background: #ffb381;
+  color: white;
 }
 .landingPage .modeSelection fieldset .modes .modeInputs {
   visibility: hidden;
 }
 .landingPage .modeSelection fieldset .modes label {
-  padding: 150px 100px;
+  padding: 30px 100px;
   background-color: rgb(255, 210, 181);
   border-radius: 50px;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  min-width: 250px;
+  text-align: center;
 }
 .landingPage .modeSelection fieldset .modes label:hover, .landingPage .modeSelection fieldset .modes label:focus {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .landingPage .modeSelection fieldset .modes label {
-    padding: 50px 100px;
+    padding: 30px 50px;
   }
 }
 .landingPage .instructions {
@@ -504,18 +541,16 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-@media (max-width: 600px) {
-  .landingPage .instructions {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 30px;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  width: 70%;
+  padding: 25px;
+  margin: 0 0 25px;
+  min-width: 250px;
 }
 .landingPage .instructionsEasy,
 .landingPage .instructionsHard {
@@ -525,32 +560,18 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: white;
-  border-radius: 50px;
-  width: 31%;
-  margin: -30px 0px 20px 10px;
-  min-width: 250px;
-}
-@media (max-width: 600px) {
-  .landingPage .instructionsEasy,
-.landingPage .instructionsHard {
-    width: 60%;
-  }
 }
 .landingPage .instructionsEasy p,
 .landingPage .instructionsHard p {
-  width: 95%;
-  margin: 5px;
-  padding: 10px;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  margin: 0 0;
 }
-.landingPage .instructionsEasy p span,
-.landingPage .instructionsHard p span {
+.landingPage .instructionsEasy .bold,
+.landingPage .instructionsHard .bold {
   font-weight: bold;
 }
-.landingPage .instructionsEasy h3,
-.landingPage .instructionsHard h3 {
-  font-size: 2rem;
+.landingPage .instructionsEasy {
+  margin-bottom: 25px;
 }
 
 .easyGame {
@@ -575,6 +596,10 @@ button {
   color: #d3d8d8;
   pointer-events: none;
   outline: none;
+}
+
+.poetContainer h2 {
+  margin: 25px 0;
 }
 
 .poemTitleContainer {
@@ -700,7 +725,7 @@ button {
   width: 80%;
 }
 .hardGame h2 {
-  font-size: 5rem;
+  font-size: 3.5rem;
 }
 @media (max-width: 900px) {
   .hardGame h2 {
