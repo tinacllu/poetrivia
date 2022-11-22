@@ -87,13 +87,12 @@ app.initializeGameMode = () => {
     app.nextButton = document.querySelector(".next");
     app.finishButton = document.querySelector(".finish");
     app.finishQuiz(app.easyGame);
-    // app.easyNext();
     app.easyGame.classList.remove("invisible");
+    document.querySelector('footer').classList.add("invisible");
   } else if (modeSelected === "hard") {
     app.displayHardPoem();
     app.nextButton = document.querySelector(".nextHard");
     app.finishButton = document.querySelector(".finishHard");
-    // app.hardNext();
     app.finishQuiz(app.hardGame);
     app.hardGame.classList.remove("invisible");
   }
@@ -250,6 +249,7 @@ app.events = () => {
       finalScore.innerHTML = `Your final score is ${app.counter}/${app.totalQuestions}`;
       gameMode.classList.add("invisible");
       app.endPage.classList.remove("invisible");
+      document.querySelector('footer').classList.remove("invisible");
     });
   };
 
