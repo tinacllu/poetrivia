@@ -6,7 +6,7 @@ app.getRandomIndex = (array) => {
   return randomIndex;
 };
 
-// fetch poem info from API 
+//fetch poem info from API 
 app.getPoemInfo = () => {
   fetch(`https://poetrydb.org/random/${app.totalQuestions * 3 * 2}`)
     .then((response) => {
@@ -37,6 +37,14 @@ app.getPoemInfo = () => {
         }
       });
       app.poemArray.pop();
+      
+      return true
+    })
+    .then((next) => {
+      app.landingPage.classList.remove("invisible");
+      app.footer.classList.remove("invisible");
+      const loadingIcon = document.querySelector(".loadingIcon");
+      loadingIcon.classList.add("invisible");
     })
     .catch((error) => {
       if (error.message === "Not Found") {
@@ -47,21 +55,26 @@ app.getPoemInfo = () => {
     });
 };
 
-const apiPromise = fetch(`https://poetrydb.org/random/${app.totalQuestions * 3 * 2}`)
-.then((response) => {
-  if (response.ok === true) {
-    return response.json();
-  } else {
-    throw new Error(response.statusText);
-  }
-})
+// const apiPromise = fetch(`https://poetrydb.org/random/${app.totalQuestions * 3 * 2}`)
+// .then((response) => {
+//   console.log(apiPromise)
+//   if (response.ok === true) {
+//     return response.json();
+//   } else {
+//     throw new Error(response.statusText);
+//   }
 
-apiPromise.then(() => {
-  app.landingPage.classList.remove("invisible");
-  app.footer.classList.remove("invisible");
-  const loadingIcon = document.querySelector(".loadingIcon");
-  loadingIcon.classList.add("invisible");
-});
+// })
+
+// apiPromise.then(() => {
+//   console.log(apiPromise)
+//   app.landingPage.classList.remove("invisible");
+//   app.footer.classList.remove("invisible");
+//   const loadingIcon = document.querySelector(".loadingIcon");
+//   loadingIcon.classList.add("invisible");
+//   app.startQuiz();
+//   console.log('game was started')
+// });
 
 // reset game trackers to default
 app.resetGame = () => {
@@ -111,15 +124,15 @@ app.startQuiz = () => {
 
 // displays poet name in easy mode
 app.displayEasyQuestion = () => {
-  app.poemPool = app.poemArray[app.questionNumber];
-  app.poemInfo = app.poemPool[app.getRandomIndex(app.poemPool)];
-  app.poetName = app.poemInfo.author;
-  const poetContainer = document.querySelector(".poetContainer");
-  poetContainer.innerHTML = `<h2>${app.poetName}</h2>`;
-  document.querySelector(".easySubmit").removeAttribute("disabled", "");
-    app.allOptions.forEach((option) => {
-      option.removeAttribute("disabled", "");
-    });
+    app.poemPool = app.poemArray[app.questionNumber];
+    app.poemInfo = app.poemPool[app.getRandomIndex(app.poemPool)];
+    app.poetName = app.poemInfo.author;
+    const poetContainer = document.querySelector(".poetContainer");
+    poetContainer.innerHTML = `<h2>${app.poetName}</h2>`;
+    document.querySelector(".easySubmit").removeAttribute("disabled", "");
+      app.allOptions.forEach((option) => {
+        option.removeAttribute("disabled", "");
+      });
 };
 
 // displays 3 poem titles as answer options in easy mode
@@ -259,10 +272,13 @@ app.events = () => {
     app.getPoemInfo();
     app.finishButton.classList.add("hidden");
     app.nextButton.classList.remove("hidden");
-    app.landingPage.classList.remove("invisible");
+    // app.landingPage.classList.remove("invisible");
     app.easyGame.classList.add("invisible");
     app.hardGame.classList.add("invisible");
     app.endPage.classList.add("invisible");
+
+    const loadingIcon = document.querySelector(".loadingIcon");
+    loadingIcon.classList.remove("invisible");
   });
 };
 
@@ -276,9 +292,11 @@ app.init = () => {
   app.textBox = document.querySelector("input[id='textBox']");
   app.totalQuestions = 5;
   
+
   app.startQuiz();
   app.events();
   app.getPoemInfo();
+  
 };
 
 app.init();
